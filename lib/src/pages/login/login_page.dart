@@ -10,22 +10,18 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        bottomNavigationBar: Container(height: 50, child: _textAbajo()),
         appBar: AppBar(
-          title: const Text("Login", 
-          style: TextStyle
-          (backgroundColor: Colors.amber,
-           color: Colors.black
-          ),),
+          title: const Text(
+            "",
+            style:
+                TextStyle(backgroundColor: Colors.amber, color: Colors.black),
+          ),
         ),
         // ignore: avoid_unnecessary_containers
         body: Container(
-         
           child: Column(
-            children: [
-              _backgroundCover(),
-              _imageCover(), 
-              _textAppName()
-              ]),
+              children: [_backgroundCover(), _imageCover(), _textAppName()]),
         ));
   }
 }
@@ -35,20 +31,21 @@ Widget _textAppName() {
   // ignore: prefer_const_constructors
   return Text(
     'TecnoFast APP',
-    style: const TextStyle(
-      fontSize: 30),
+    style: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
   );
 }
 
 Widget _imageCover() {
   // ignore: avoid_unnecessary_containers
-  return Container(
+  return SafeArea(
+      child: Container(
+    alignment: Alignment.topCenter,
     child: Image.asset(
       'assets/img/TecnoFast.PNG',
-      width: 180,
-      height: 180,
+      width: 200,
+      height: 200,
     ),
-  );
+  ));
 }
 
 // ignore: unused_element
@@ -58,4 +55,19 @@ Widget _backgroundCover() {
     height: 200,
     color: Colors.amber,
   );
+}
+
+// ignore: unused_element
+Widget _textAbajo() {
+  
+  // ignore: prefer_const_constructors
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Text('No tienes cuenta? ', style: TextStyle(color: Colors.black, fontSize: 18),),
+      Text(' Registrate Aqui', style: TextStyle(color: Colors.amber, fontSize: 20),),
+    ],
+  
+  );
+  
 }
